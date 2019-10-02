@@ -1,0 +1,15 @@
+h1 {
+  background-color: grey;
+  font-family: 'Franklin Gothic Medium';
+  font-style: italic;
+  font-weight: bolder;
+}
+
+.nav-bar {
+  height: 10px;
+  width: 100px;
+}
+
+.container-fluid {
+  background-color: rgba(116, 69, 69, 0.52);
+}

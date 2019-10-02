@@ -1,0 +1,69 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-5">
+        <form (keyup)="findProfile()" #userForm="ngForm">
+            <div  class="form-group">
+                <P style="text-align: center"> <B>  IN PUT YOUR USER NAME AND LET ANGULAR WORK ITS MAGIC </B> </P>
+
+              <input type="text" class="form-control" name="userName" placeholder="Search" [(ngModel)]="userName">
+            </div>
+        </form>
+    </div>
+  </div>
+
+  <div class="jumbotron" style="color: black">
+  <div class="row" id="Properties" ng-style="myStyle">
+      <div class="col-md-5" id="Gitphoto" *ngIf="user">
+       <img src='{{user.avatar_url}}' alt='Profile-Picture of Git-User'>
+      </div>
+  </div>
+      <div class="col-md-7" id="Properties1" ng-style="myStyle">
+        <h3 ng-style= "myStyle">Github Profile Details</h3>
+       <ul>
+           <li appAppDirective> Name:<a href='{{user.html_url}}' target='_blank'>{{user.login | lastName}}</a> </li>
+           <br>
+           <li>Repositories:{{user.public_repos}}</li>
+           <br>
+           <li>Created On: {{user.created_at}}</li>
+           <br>
+           <li>Followers: {{user.followers}}</li>
+           <br>
+           <li>Following: {{user.following}} </li>
+        </ul> <br>
+      </div>
+      <hr>
+
+  </div>
+
+<div class="row" id="RepoSection" ng-style="myStyle">
+  <div *ngIf="profileService">
+    <h3 ng-style="myStyle" id="repo">Repositories By User</h3>
+    <div *ngFor='let repository of profileService.otherRepo'>
+    <ul>
+      <li><a href= '{{repository.html_url}}' target:_blank></a>{{repository.name}} <br> Description :{{repository.description}}</li>
+    </ul> <hr>
+  </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <a href="https://github.com"> Github.com</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
